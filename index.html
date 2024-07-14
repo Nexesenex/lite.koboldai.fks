@@ -1144,12 +1144,6 @@ Current version indicated by LITEVER below.
 			flex-flow: wrap;
 		}
 
-		.settinglabel.column {
-			flex-flow: column wrap;
-			padding: 0px 2px;
-		}
-
-
 		.settingminmax {
 			display: grid;
 			grid-template-columns: 50% 50%;
@@ -5153,10 +5147,6 @@ Current version indicated by LITEVER below.
 	function is_using_kcpp_with_mirostat()
 	{
 		return (custom_kobold_endpoint!="" && koboldcpp_version && koboldcpp_version!="" && compare_version_str(koboldcpp_version, "1.37") >= 0);
-	}
-	function is_using_kcpp_with_dry()
-	{
-		return (custom_kobold_endpoint!="" && koboldcpp_version && koboldcpp_version!="" && compare_version_str(koboldcpp_version, "1.6839") >= 0);
 	}
 	function is_using_kcpp_with_grammar()
 	{
@@ -9220,17 +9210,6 @@ Current version indicated by LITEVER below.
 			document.getElementById("mirosupporteddiv").classList.add("hidden");
 			document.getElementById("mirounsupporteddiv").classList.remove("hidden");
 		}
-		if(is_using_kcpp_with_dry())
-		{
-			document.getElementById("drysupporteddiv").classList.remove("hidden");
-			document.getElementById("dryunsupporteddiv").classList.add("hidden");
-		}
-		else
-		{
-			document.getElementById("drysupporteddiv").classList.add("hidden");
-			document.getElementById("dryunsupporteddiv").classList.remove("hidden");
-		}
-		pendingsequencebreakers = localsettings.dry_sequence_breakers;
 
 		if(is_using_kcpp_with_dry())
 		{
