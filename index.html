@@ -4079,7 +4079,6 @@ Current version indicated by LITEVER below.
 
 	const default_openrouter_base = "https://openrouter.ai/api/v1";
 	const default_mistralai_base = "https://api.mistral.ai/v1";
-	const default_featherless_base = "https://api.featherless.ai/v1";
 	const default_oai_base = "https://api.openai.com";
 	const default_claude_base = "https://api.anthropic.com";
 	const default_palm_base = "https://generativelanguage.googleapis.com/v1beta2/models/text-bison-001:generateText?key=";
@@ -4213,7 +4212,6 @@ Current version indicated by LITEVER below.
 		saved_dalle_url: (default_oai_base + "/v1" + default_oai_image_endpoint),
 		saved_openrouter_key: "",
 		saved_mistralai_key: "",
-		saved_featherless_key: "",
 		saved_claude_key: "", //do not ever share this in save files!
 		saved_claude_addr: default_claude_base, //do not ever share this in save files!
 		saved_palm_key: "", //do not ever share this in save files!
@@ -4300,7 +4298,7 @@ Current version indicated by LITEVER below.
 		entersubmit: true, //enter sends the prompt
 		darkmode: true,
 
-		max_context_length: (localflag?2048:1600),
+		max_context_length: (localflag?4096:1800),
 		max_length: 200,
 		auto_ctxlen: true,
 		auto_genamt: true,
@@ -4353,7 +4351,7 @@ Current version indicated by LITEVER below.
 			rep_pen_slope: defaultsettings.rep_pen_slope,
 			sampler_order: defaultsettings.sampler_order
 		},
-		{"preset":"Simple Logical","description":"A very predictable preset with low randomness.","temp":0.25,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.6,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.01,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Simple Balanced","description":"A good balanced preset with medium randomness.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.92,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.07,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Simple Creative","description":"A wild and unpredictable preset with higher randomness.","temp":1.0,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.98,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.15,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Basic Min-P","description":"A good default for Min-P, only works on backends with min-p.","temp":1.25,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.1,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic DynaTemp","description":"A good default for DynaTemp, only works on backends with it.","temp":1.25,"dynatemp_range":0.75,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.05,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic SmoothSample","description":"A good default for Smooth Sampling, only works on backends with it.","temp":1.0,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.25,"genamt":200,"top_k":0,"top_p":1,"min_p":0.05,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic SillyTavern","description":"Similar to default preset used in SillyTavern.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":40,"top_p":0.6,"min_p":0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1.0,"rep_pen":1.18,"rep_pen_range":1024,"rep_pen_slope":0.8,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"CoherentCreativity (Legacy)","description":"Legacy preset. A good balance between coherence, creativity, and quality of prose.","genamt":200,"rep_pen":1.2,"rep_pen_range":2048,"rep_pen_slope":0,"sampler_order":[6,5,0,2,3,1,4],"temp":0.5,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"tfs":0.99,"top_a":0,"top_k":0,"top_p":1,"min_p":0.0,"presence_penalty":0.0,"typical":1},{"preset":"Godlike (Legacy)","description":"Legacy preset. Makes AI give a descriptive and sensual output.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":0.5,"min_p":0.0,"presence_penalty":0.0,"top_a":0.75,"typical":0.19,"tfs":0.97,"rep_pen":1.1,"rep_pen_range":1024,"rep_pen_slope":0.7,"sampler_order":[6,5,4,3,2,1,0]},{"preset":"LiminalDrift (Legacy)","description":"Legacy preset. Sometimes surreal situations arise based on information already present in the story.","temp":0.66,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.0,"presence_penalty":0.0,"top_a":0.96,"typical":0.6,"tfs":1,"rep_pen":1.1,"rep_pen_range":1024,"rep_pen_slope":0.7,"sampler_order":[6,4,5,1,0,2,3]}
+		{"preset":"Simple Logical","description":"A very predictable preset with low randomness.","temp":0.25,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.6,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.01,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Simple Balanced","description":"A good balanced preset with medium randomness.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.92,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.07,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Simple Creative","description":"A wild and unpredictable preset with higher randomness.","temp":1.0,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":100,"top_p":0.98,"min_p":0.0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.15,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"Basic Min-P","description":"A good default for Min-P, only works on backends with min-p.","temp":1.25,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.1,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic DynaTemp","description":"A good default for DynaTemp, only works on backends with it.","temp":1.25,"dynatemp_range":0.75,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.05,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic SmoothSample","description":"A good default for Smooth Sampling, only works on backends with it.","temp":1.0,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.25,"genamt":200,"top_k":0,"top_p":1,"min_p":0.05,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1,"rep_pen":1.03,"rep_pen_range":320,"rep_pen_slope":0.7,"sampler_order":[6,5,0,1,3,4,2]},{"preset":"Basic SillyTavern","description":"Similar to default preset used in SillyTavern.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":40,"top_p":0.6,"min_p":0,"presence_penalty":0.0,"top_a":0,"typical":1,"tfs":1.0,"rep_pen":1.18,"rep_pen_range":1024,"rep_pen_slope":0.8,"sampler_order":[6,0,1,3,4,2,5]},{"preset":"CoherentCreativity (Legacy)","description":"Legacy preset. A good balance between coherence, creativity, and quality of prose.","genamt":200,"rep_pen":1.2,"rep_pen_range":320,"rep_pen_slope":0,"sampler_order":[6,5,0,2,3,1,4],"temp":0.5,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"tfs":0.99,"top_a":0,"top_k":0,"top_p":1,"min_p":0.0,"presence_penalty":0.0,"typical":1},{"preset":"Godlike (Legacy)","description":"Legacy preset. Makes AI give a descriptive and sensual output.","temp":0.7,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":0.5,"min_p":0.0,"presence_penalty":0.0,"top_a":0.75,"typical":0.19,"tfs":0.97,"rep_pen":1.1,"rep_pen_range":1024,"rep_pen_slope":0.7,"sampler_order":[6,5,4,3,2,1,0]},{"preset":"LiminalDrift (Legacy)","description":"Legacy preset. Sometimes surreal situations arise based on information already present in the story.","temp":0.66,"dynatemp_range":0.0,"dynatemp_exponent":1.0,"smoothing_factor":0.0,"genamt":200,"top_k":0,"top_p":1,"min_p":0.0,"presence_penalty":0.0,"top_a":0.96,"typical":0.6,"tfs":1,"rep_pen":1.1,"rep_pen_range":1024,"rep_pen_slope":0.7,"sampler_order":[6,4,5,1,0,2,3]}
 	];
 
 	const instructpresets = [
@@ -5891,7 +5889,6 @@ Current version indicated by LITEVER below.
 			new_save_storyobj.savedsettings.saved_kai_key = "";
 			new_save_storyobj.savedsettings.saved_openrouter_key = "";
 			new_save_storyobj.savedsettings.saved_mistralai_key = "";
-			new_save_storyobj.savedsettings.saved_featherless_key = "";
 			new_save_storyobj.savedsettings.saved_palm_key = "";
 			new_save_storyobj.savedsettings.saved_cohere_key = "";
 
@@ -6222,7 +6219,6 @@ Current version indicated by LITEVER below.
 					let tmp_oai4 = localsettings.saved_dalle_url;
 					let tmp_or1 = localsettings.saved_openrouter_key;
 					let tmp_mai = localsettings.saved_mistralai_key;
-					let tmp_fai = localsettings.saved_featherless_key;
 					let tmp_claude1 = localsettings.saved_claude_key;
 					let tmp_claude2 = localsettings.saved_claude_addr;
 					let tmp_palm1 = localsettings.saved_palm_key;
@@ -6259,7 +6255,6 @@ Current version indicated by LITEVER below.
 					localsettings.saved_dalle_url = tmp_oai4;
 					localsettings.saved_openrouter_key = tmp_or1;
 					localsettings.saved_mistralai_key = tmp_mai;
-					localsettings.saved_featherless_key = tmp_fai;
 					localsettings.saved_claude_key = tmp_claude1;
 					localsettings.saved_claude_addr = tmp_claude2;
 					localsettings.saved_palm_key = tmp_palm1;
@@ -8069,8 +8064,6 @@ Current version indicated by LITEVER below.
 				return document.getElementById("custom_openrouter_model");
 			case "7":
 				return document.getElementById("custom_mistralai_model");
-			case "8":
-				return document.getElementById("custom_featherless_model");
 			default:
 				return document.getElementById("custom_oai_model");
 		}
@@ -8227,7 +8220,6 @@ Current version indicated by LITEVER below.
 		document.getElementById("custom_oai_model").classList.add("hidden");
 		document.getElementById("custom_openrouter_model").classList.add("hidden");
 		document.getElementById("custom_mistralai_model").classList.add("hidden");
-		document.getElementById("custom_featherless_model").classList.add("hidden");
 		document.getElementById("hordeloadmodelcontainer").classList.add("hidden");
 		document.getElementById("coherecustom").classList.add("hidden");
 
@@ -8245,12 +8237,11 @@ Current version indicated by LITEVER below.
 				document.getElementById("customkoboldkey").value = localsettings.saved_kai_key;
 			}
 		}
-		else if(epchoice==2 || epchoice==3 || epchoice==7 || epchoice==8)
+		else if(epchoice==2 || epchoice==3 || epchoice==7)
 		{
 			document.getElementById("oaicustom").classList.remove("hidden");
 			document.getElementById("openrouterdesc").classList.add("hidden");
 			document.getElementById("mistralaidesc").classList.add("hidden");
-			document.getElementById("featherlessdesc").classList.add("hidden");
 			document.getElementById("oaidesc").classList.add("hidden");
 			if(epchoice==2)
 			{
@@ -8271,14 +8262,6 @@ Current version indicated by LITEVER below.
 				document.getElementById("custom_oai_endpoint").classList.add("hidden");
 				document.getElementById("custom_oai_key").value = localsettings.saved_mistralai_key;
 				document.getElementById("custom_oai_endpoint").value = default_mistralai_base;
-			}
-			else if(epchoice==8)
-			{
-				document.getElementById("custom_featherless_model").classList.remove("hidden");
-				document.getElementById("featherlessdesc").classList.remove("hidden");
-				document.getElementById("custom_oai_endpoint").classList.add("hidden");
-				document.getElementById("custom_oai_key").value = localsettings.saved_featherless_key;
-				document.getElementById("custom_oai_endpoint").value = default_featherless_base;
 			}
 			else //openrouter supports autofetch
 			{
@@ -8515,7 +8498,7 @@ Current version indicated by LITEVER below.
 												document.getElementById("max_context_length_slide").max = ep_maxctx;
 												document.getElementById("max_context_length_slide_label").innerText = ep_maxctx;
 											}
-											if(localflag && localsettings.max_context_length==2048 && ep_maxctx>2048)
+											if(localflag && localsettings.max_context_length==4096 && ep_maxctx>4096)
 											{
 												localsettings.max_context_length = ep_maxctx;
 											}
@@ -8646,7 +8629,7 @@ Current version indicated by LITEVER below.
 					});
 			}
 		}
-		else if(epchoice==2 || epchoice==3 || epchoice==7 || epchoice==8) //connect to OAI / OpenRouter / MistralAI / Featherless Endpoint
+		else if(epchoice==2 || epchoice==3 || epchoice==7) //connect to OAI / OpenRouter / MistralAI Endpoint
 		{
 			let desired_oai_key = document.getElementById("custom_oai_key").value.trim();
 			let desired_oai_ep = document.getElementById("custom_oai_endpoint").value.trim();
@@ -8688,10 +8671,6 @@ Current version indicated by LITEVER below.
 				else if(epchoice==7)
 				{
 					localsettings.saved_mistralai_key = custom_oai_key;
-				}
-				else if(epchoice==8)
-				{
-					localsettings.saved_featherless_key = custom_oai_key;
 				}
 				else
 				{
@@ -17200,7 +17179,6 @@ Current version indicated by LITEVER below.
 				<option value="5">PaLM/Gemini By Google API</option>
 				<option value="6">Cohere API</option>
 				<option value="7">MistralAI API</option>
-				<option value="8">Featherless API</option>
 			</select>
 			</div>
 
@@ -17270,11 +17248,6 @@ Current version indicated by LITEVER below.
 				Note that KoboldAI Lite takes no responsibility for your usage or consequences of this feature. Your API key is used directly with the MistralAI API and is not transmitted to us.<br>Only Temperature and Top-P samplers are used.<br><br>
 				<span class="color_green" style="font-weight: bold;">Please input MistralAI Key.</span><br><br>
 				</span>
-				<span id="featherlessdesc" class="hidden">
-				Entering your Featherless API key will allow you to use KoboldAI Lite with their API.<br><br>
-				Note that KoboldAI Lite takes no responsibility for your usage or consequences of this feature. Your API key is used directly with the Featherless API and is not transmitted to us.<br>Only Temperature, Top-P and Repetition Penalty samplers are used.<br><br>
-				<span class="color_green" style="font-weight: bold;">Please input Featherless Key.</span><br><br>
-				</span>
 
 				<input class="form-control" type="text" id="custom_oai_endpoint" placeholder="OpenAI API URL" value="">
 				<input class="form-control" type="password" id="custom_oai_key" placeholder="OpenAI API Key (Required)" value="" onfocus="focus_api_keys()" onblur="blur_api_keys()"><br>
@@ -17309,20 +17282,6 @@ Current version indicated by LITEVER below.
 					<option value="mistral-medium">mistral-medium</option>
 					<option value="mistral-large-latest">mistral-large-latest</option>
 					<option style="display:none;" class="custom_model_option" value="custom">[Custom]</option>
-				</select>
-				<select style="padding:4px;display:inline;width:calc(100% - 220px)" class="form-control hidden" id="custom_featherless_model" onchange="oai_model_change(true)">
-					<option value="Sao10K/L3-8B-Lunaris-v1">Sao10K/L3-8B-Lunaris-v1</option>
-					<option value="Sao10K/L3-8B-Stheno-v3.2">Sao10K/L3-8B-Stheno-v3.2</option>
-					<option value="unsloth/llama-3-8b-Instruct">unsloth/llama-3-8b-Instruct</option>
-					<option value="beomi/Llama-3-Open-Ko-8B">beomi/Llama-3-Open-Ko-8B</option>
-					<option value="Sao10K/Fimbulvetr-11B-v2">Sao10K/Fimbulvetr-11B-v2</option>
-					<option value="HuggingFaceH4/zephyr-7b-beta">HuggingFaceH4/zephyr-7b-beta</option>
-					<option value="upstage/SOLAR-10.7B-Instruct-v1.0">upstage/SOLAR-10.7B-Instruct-v1.0</option>
-					<option value="alpindale/magnum-72b-v1">alpindale/magnum-72b-v1</option>
-					<option value="Sao10K/L3-70B-Euryale-v2.1">Sao10K/L3-70B-Euryale-v2.1</option>
-					<option value="alpindale/WizardLM-2-8x22B">alpindale/WizardLM-2-8x22B</option>
-					<option value="meta-llama/Meta-Llama-3.1-405B-Instruct">meta-llama/Meta-Llama-3.1-405B-Instruct</option>
-				<option style="display:none;" class="custom_model_option" value="custom">[Custom]</option>
 				</select>
 				<button type="button" class="btn btn-primary" style="display:inline;width:105px;" id="oaifetchlist" onclick="oai_fetch_models()">Fetch List</button>
 				<button type="button" class="btn btn-primary" style="display:inline;width:105px;" id="oaiusecustom" onclick="select_custom_oai_model()">Use Custom</button>
@@ -18341,6 +18300,7 @@ Current version indicated by LITEVER below.
 						class="helptext">Controls how far back in the text to search for World Info Keys</span></span></div>
 				<select title="World Info Search Depth" style="height:16px;padding:0px;margin:0px 4px 0; width:90px;font-size:10px;" class="form-control" id="wi_searchdepth">
 					<option value="0">Full Context</option>
+					<option value="8192">Last 8192</option>
 					<option value="4096">Last 4096</option>
 					<option value="2048">Last 2048</option>
 					<option value="1024">Last 1024</option>
